@@ -1,0 +1,8 @@
+/.env
+/auth_info_baileys
+/baileys.md
+/implementation_plan.md
+/node_modules
+/package-lock.json
+/test_settings.js
+/test_upload.js

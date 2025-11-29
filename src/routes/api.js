@@ -1,0 +1,31 @@
+
+const express = require('express');
+const router = express.Router();
+const multer = require('multer');
+const whatsappController = require('../controllers/whatsappController');
+const dashboardController = require('../controllers/dashboardController');
+const settingsController = require('../controllers/settingsController');
+
+// Configure Multer for memory storage
+const storage = multer.memoryStorage();
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
+});
+
+// Middleware to parse JSON body for POST requests
+router.use(express.json());
+
+router.get('/qr', whatsappController.getQR);
+router.get('/status', whatsappController.getStatus);
+router.get('/dashboard/stats', dashboardController.getDashboardStats);
+
+router.get('/settings/ai', settingsController.getSettings);
+router.post('/settings/ai', settingsController.updateSettings);
+
+// File Upload Routes
+router.post('/settings/upload', upload.single('file'), settingsController.uploadFile);
+router.delete('/settings/files/:id', settingsController.deleteFile);
+
+module.exports = router;
+
