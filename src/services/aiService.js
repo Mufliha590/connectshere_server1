@@ -55,7 +55,7 @@ const generateResponse = async (userMessage, userId) => {
     const tools = [];
     const config = {
         temperature: 0.7,
-        maxOutputTokens: 150, // Reduced to force shorter responses
+        maxOutputTokens: 500, // Increased to prevent truncation, relying on system prompt for brevity
         mediaResolution: 'MEDIA_RESOLUTION_UNSPECIFIED',
         tools,
         systemInstruction: [
@@ -188,3 +188,16 @@ module.exports = {
     generateResponse,
     shouldReplyToMessage
 };
+// add a option in friend end and logic for check the bussiness porpos selection advanced features section.
+
+// product selling.
+
+// appoiment ticketing. for doctores 
+
+// ticket rising for problems.
+
+// add bot if toggiled anytrhing add ai instructions.
+
+// also add option and interface to confim each even if it purchase(confirmed or rejection with reasons.), confirm cunsultancy , or rejection.
+
+// if 
